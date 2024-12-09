@@ -1,15 +1,15 @@
 import feedparser
 
-print('Bitte eine URL zum RSS-Feed eingeben:')
+print('Type in an URL of a RSS Feed:')
 inputUrl = input().strip()
 
 
 myFeed = feedparser.parse(inputUrl)
 print('\n\nRSS Feed "' + myFeed.feed.title + '"')
 
-inputYN = 'j'
+inputYN = 'y'
 myRange = 0
-while inputYN == 'j':
+while inputYN == 'y':
     myRange +=5
     for i in range(myRange-5, myRange):
         myTitle = myFeed.entries[i].title
@@ -19,5 +19,5 @@ while inputYN == 'j':
         print('\n', myTitle, " (", myDate, ")")
         print(myDescr)
         print(myLink)
-    print("Möchten Sie mehr sehen? j für Ja oder n für Nein eingeben:")
+    print("Do you like to see more? Type y for yes, n for no:")
     inputYN = input().strip()
