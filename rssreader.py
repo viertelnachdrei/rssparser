@@ -1,9 +1,13 @@
 import feedparser
 
-print('Type in an URL of a RSS Feed:') # get url from user
-inputUrl = input().strip()
-
-myFeed = feedparser.parse(inputUrl) # parse url and print title of RSS feed
+inputOk = False
+while inputOk == False:
+    inputUrl = input('Type in an URL of a RSS Feed: ').strip() # get url from user
+    myFeed = feedparser.parse(inputUrl) # parse url and print title of RSS feed
+    if len(myFeed.entries) >= 1:
+        inputOk = True
+    else:
+        print('Input invalid, please try again.')
 print(f'\nRSS Feed: {myFeed.feed.title}')
 
 inputYN = 'y'
